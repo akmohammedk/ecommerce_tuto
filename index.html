@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMobile - Téléphones Haut de Gamme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" href="https://mms.img.susercontent.com/0127c3bca6f6e3e424fc94a65ede1fbb" type="image/png">
+
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://mms.img.susercontent.com/0127c3bca6f6e3e424fc94a65ede1fbb" alt="TechMobile">
+            </a>
+            <div class="nav-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#produits">Produits</a>
+                <a href="#promotions">Promotions</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bannière Hero -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Découvrez les derniers smartphones</h1>
+                <p>Technologie de pointe à portée de main</p>
+                <a href="#produits" class="btn">Voir la collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Nos Catégories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://www.numerama.com/wp-content/uploads/2024/09/iphone-16-pro-max-01.jpg" alt="Premium">
+                    <h3>Haut de Gamme</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://static-images.lpnt.fr/cd-cw809/images/2025/02/18/27340502lpw-27340506-mega-une-jpg_10891901.jpg" alt="Milieu de Gamme">
+                    <h3>Milieu de Gamme</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://static.fnac-static.com/multimedia/Images/FD/Comete/182339/CCP_IMG_ORIGINAL/2432141.jpg" alt="Entrée de Gamme">
+                    <h3>Entrée de Gamme</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://i0.wp.com/www.gohanblog.fr/www/wp-content/uploads/2022/06/accessoires-iphone-selection.jpg?fit=1801%2C1031&ssl=1" alt="Accessoires">
+                    <h3>Accessoires</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section class="products" id="produits">
+        <div class="container">
+            <h2 class="section-title">Nos Produits Phares</h2>
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="apple">Apple</button>
+                <button class="filter-btn" data-filter="samsung">Samsung</button>
+                <button class="filter-btn" data-filter="xiaomi">Xiaomi</button>
+                <button class="filter-btn" data-filter="oneplus">OnePlus</button>
+            </div>
+            <div class="product-grid" id="product-container">
+                <!-- Les produits seront chargés dynamiquement via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Promotions -->
+    <section class="promotions" id="promotions">
+        <div class="container">
+            <h2 class="section-title">Promotions du Mois</h2>
+            <div class="promo-banner">
+                <div class="promo-content">
+                    <h3>Jusqu'à -30% sur les derniers modèles</h3>
+                    <p>Offre valable jusqu'au 30 juin 2023</p>
+                    <a href="#" class="btn">Voir les offres</a>
+                </div>
+            </div>
+            <div class="promo-products">
+                <!-- Les produits en promotion seront chargés dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Abonnez-vous à notre newsletter</h2>
+                <p>Recevez les dernières nouveautés et offres exclusives</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informations de contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Tech, Paris, France</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@techmobile.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TechMobile</h3>
+                    <p>Votre destination pour les derniers smartphones et accessoires technologiques.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Produits</a></li>
+                        <li><a href="#promotions">Promotions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Service client</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Livraison</a></li>
+                        <li><a href="#">Retours</a></li>
+                        <li><a href="#">Paiement sécurisé</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Moyens de paiement</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechMobile. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Panier latéral -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Votre Panier</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Les articles du panier seront chargés dynamiquement -->
+        </div>
+        <div class="cart-total">
+            <h4>Total: <span class="total-price">€0.00</span></h4>
+            <a href="#" class="btn checkout-btn">Passer la commande</a>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
