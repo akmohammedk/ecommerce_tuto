@@ -90,6 +90,26 @@ const cartIcon = document.querySelector('.cart-icon');
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
+
+// Créer un son de "plop" pour l'ajout au panier
+function playPopSound() {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(200, audioCtx.currentTime + 0.2);
+    
+    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + 0.3);
+}
 // Afficher les produits
 function displayProducts(productsToDisplay) {
     productContainer.innerHTML = '';
@@ -151,8 +171,46 @@ function filterProducts(category) {
 function addToCart(e) {
     const productId = parseInt(e.target.dataset.id);
     const product = products.find(p => p.id === productId);
+    const buttonRect = e.target.getBoundingClientRect();
     
-    // Vérifier si le produit est déjà dans le panier
+    // Créer l'élément qui saute
+    const jumpingItem = document.createElement('div');
+    jumpingItem.className = 'jumping-item';
+    
+    // Ajouter l'image du produit
+    const img = document.createElement('img');
+    img.src = product.image;
+    jumpingItem.appendChild(img);
+    
+    // Position de départ (bouton)
+    const startX = buttonRect.left + buttonRect.width / 2;
+    const startY = buttonRect.top;
+    
+    // Position cible (icône panier)
+    const cartIconRect = document.querySelector('.cart-icon').getBoundingClientRect();
+    const endX = cartIconRect.left + cartIconRect.width / 2 - startX;
+    const endY = cartIconRect.top - startY;
+    
+    // Point milieu pour la courbe de saut
+    const midX = endX / 2;
+    const midY = -100; // Saut vers le haut
+    
+    // Appliquer les positions
+    jumpingItem.style.left = `${startX}px`;
+    jumpingItem.style.top = `${startY}px`;
+    jumpingItem.style.setProperty('--midX', `${midX}px`);
+    jumpingItem.style.setProperty('--midY', `${midY}px`);
+    jumpingItem.style.setProperty('--endX', `${endX}px`);
+    jumpingItem.style.setProperty('--endY', `${endY}px`);
+    
+    document.body.appendChild(jumpingItem);
+    
+    // Supprimer l'élément après l'animation
+    setTimeout(() => {
+        jumpingItem.remove();
+    }, 800);
+    
+    // Ajouter au panier
     const existingItem = cart.find(item => item.id === productId);
     
     if (existingItem) {
@@ -167,17 +225,19 @@ function addToCart(e) {
     updateCart();
     showCartNotification(product.name);
 }
-
 // Mettre à jour le panier
 function updateCart() {
-    // Mettre à jour le compteur
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     cartCount.textContent = totalItems;
     
-    // Mettre à jour le panier latéral
+    // Animation pop du compteur
+    cartCount.classList.add('pop');
+    setTimeout(() => {
+        cartCount.classList.remove('pop');
+    }, 400);
+    
     renderCartItems();
 }
-
 // Afficher les articles du panier
 function renderCartItems() {
     cartItemsContainer.innerHTML = '';
